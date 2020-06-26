@@ -76,28 +76,39 @@ Index Page when Logged In:
 
 This template is executed when a user goes to the login page.
 
-Image of Page
+Login Page:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/loginPage.PNG)
+
+Login Page with an Error:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/LoginPageWhenErrorPassedToTemplate.PNG)
 
 ## signup.gohtml
 
 This template is executed when a user goes to the signup page.
 
-Image of Page
+SignUp Page:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/signupPage.PNG)
+
+SignUp Page with an Error:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/signupPageWhenErrorPassed.PNG)
 
 ## uploadPostPage.gohtml
 
 This template is executed when a user goes to the upload a post page.
 
-Image of Page
+Upload Post Page:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/uploadPostPage.PNG)
 
 ## yourLikedPosts.gohtml
 
 This template is executed when a user goes to their liked posts page.
 
-Image of Page
+Liked Post Page:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/likedPostsPage.PNG)
 
 ## yourPosts.gohtml
 
 This template is executed when a user goes to their posts page.
 
-Image of Page
+Your Posts Page:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/yourPostsPage.PNG)
