@@ -14,32 +14,32 @@ import (
 func main() {
 	//Spins up go func for listening to producer events
 	//This should work
-	go func() {
-	//	//Infinite for loop to have this run forever and check events as they come in
-	//	//Good for small scale
-	//	//Bad for large scale
-		for {
-			for e := range config.Producer.Events() {
-				switch ev := e.(type) {
-				case *kafka.Message:
-					if ev.TopicPartition.Error != nil {
-						//Prints to file if delivery failed
-						_, err := fmt.Fprintf(config.FileForKafka, "Delivery failed: %v\n", ev.TopicPartition)
-						if err != nil {
-							log.Println(err, "Failed to write Kafka Delivery Failed to file")
-						}
-					} else {
-						//Prints to file if delivery success
-						_, err := fmt.Fprintf(config.FileForKafka, "Delivered message to %v\n", ev.TopicPartition)
-						if err != nil {
-							log.Println(err, "Failed to write Kafka Delivery Success to file")
-						}
-					}
-				}
-			}
-			time.Sleep(time.Second)
-		}
-	}()
+// 	go func() {
+// 	//	//Infinite for loop to have this run forever and check events as they come in
+// 	//	//Good for small scale
+// 	//	//Bad for large scale
+// 		for {
+// 			for e := range config.Producer.Events() {
+// 				switch ev := e.(type) {
+// 				case *kafka.Message:
+// 					if ev.TopicPartition.Error != nil {
+// 						//Prints to file if delivery failed
+// 						_, err := fmt.Fprintf(config.FileForKafka, "Delivery failed: %v\n", ev.TopicPartition)
+// 						if err != nil {
+// 							log.Println(err, "Failed to write Kafka Delivery Failed to file")
+// 						}
+// 					} else {
+// 						//Prints to file if delivery success
+// 						_, err := fmt.Fprintf(config.FileForKafka, "Delivered message to %v\n", ev.TopicPartition)
+// 						if err != nil {
+// 							log.Println(err, "Failed to write Kafka Delivery Success to file")
+// 						}
+// 					}
+// 				}
+// 			}
+// 			time.Sleep(time.Second)
+// 		}
+// 	}()
 
 
 	//Servers Main Pages
