@@ -49,19 +49,28 @@ This template is executed when a user is searching for posts from another user.
 Find Post Page Before Searching a Username:  
 ![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/FindPostPagePreSearch.PNG)
 
-Image of searched page
+Find Post Page After Searching a Username:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/FindPostPagePostSearch.PNG)
+
+Find Post Page After Searching a Username (Zoomed Out):  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/FindPostPagePostSearchZoomedOut.PNG)
 
 ## index.gohtml
 
 This template is executed as the main homepage of the site. This one is executed for users who are not logged in.
 
-Image of page
+Index Page At Full Screen Size:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/indexNotLoggedInFullScreen.PNG)
+
+Index Page At Smaller/Mobile Screen Size:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/indexNotLoggedInSmallScreen.PNG)
 
 ## indexLogged.gohtml
 
 This template is executed as the main homepage of the site. This one is executed for users who are logged in.
 
-Image of Page
+Index Page when Logged In:  
+![alt-text](https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/indexWhenLoggedIn.PNG)
 
 ## login.gohtml
 
