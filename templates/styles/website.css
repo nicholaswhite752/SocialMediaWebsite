@@ -1,0 +1,35 @@
+.custBody {
+    background-color: #DAE5DA;
+    font-family: Helvetica;
+}
+
+.navColor {
+    color: #272256;
+}
+
+.liked{
+    background-color: palevioletred;
+}
+
+#mainNavbar{
+    background-color: #272256;
+    font-size: 1.2rem;
+}
+
+#uploadPostText{
+    color: #272256;
+    text-shadow: 2px 2px 5px black;
+}
+
+#loginPageUser{
+    color: #272256;
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 5px black;
+}
+
+@media (max-width: 768px){
+    #loginPageUser {
+        font-size: 2.5rem;
+        -webkit-text-stroke-width: .1rem;
+    }
+}

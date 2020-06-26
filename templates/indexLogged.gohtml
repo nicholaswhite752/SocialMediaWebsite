@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+
+    <!-- Custom CSS Sheet -->
+    <link rel="stylesheet" href="/styles/website.css">
+    <script src="/js/script.js"></script>
+
+    <!-- Title of the web page -->
+    <title>PostEt</title>
+</head>
+
+<body class=" custBody">
+
+
+<!-- NAVBAR SECTION -->
+<nav id="mainNavbar" class="navbar navbar-expand-xl navbar-dark">
+    <!-- Icon and Name in top left corner -->
+    <a class="navbar-brand" href="/"><i class="fas fa-portrait"></i> PostEt</a>
+    <!-- Navbar collapses into a button with 3 lines at a certain screen size-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar Links on Left Side of Page -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <!-- Link for top posts / index page-->
+                <a class="nav-link" href="/">Top Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Link to go to find posts page -->
+                <a class="nav-link" href="/findPosts">Find Posts <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+
+        <!-- Navbar Links on Right Side of Page -->
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <!-- Link for your posts page -->
+                <a class="nav-link" href="/yourPosts">Your Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Link for your liked posts page -->
+                <a class="nav-link" href="/likedPosts">Liked Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Link to upload a post page -->
+                <a class="nav-link" href="/uploadpost">Upload A Post <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Icon for a user with username of user next to it-->
+                <a class="nav-link" href="#"><i class="far fa-user"></i> {{.UsernamePass}}</a>
+            </li>
+            <li class="nav-item">
+                <!-- Link for logout -->
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Container for heading text and form -->
+<div class="container-fluid">
+
+    <div class="row mt-5">
+        <!-- Always shows top nine posts from all users, hardcoded by server  -->
+        {{range .PostsWithEncode}}
+            <!-- Row to center data in middle of screen -->
+            <!-- One small screens it is one post a row, one larger screens its 2 post per row, on largest screens its 3 posts per row -->
+            <div class="col-12 col-md-6 col-lg-4 p-4 d-flex align-items-center justify-content-center">
+                <!-- Cards for post images-->
+                <!-- Give that post a div ID of the posts object ID-->
+                <div id="{{.ID}}" class="card">
+                    <!-- Grab encoded base64 representation of file for post-->
+                    <img class="img-thumbnail img-fluid" src="data:image/*;base64,{{.EncodedFile}}" alt="Card image cap">
+                    <div class="card-body">
+                        <!-- Caption for post-->
+                        <p class="card-text">{{.Caption}}</p>
+                        <div>
+                            <!-- Likes number for that post -->
+                            <p style="display: inline-block">{{.Likes}} </p>
+                            <!-- Javascript function that is called when like icon is clicked, pass in object ID of the post that is liked -->
+                            <!-- IF post is liked is loads in with the IsLiked class (red background)-->
+                            <i style="display: inline-block" onclick="like(&quot;{{.ID}}&quot;)" class="far fa-heart {{.IsLiked}}"></i>
+                        </div>
+                        <!-- Username of user who posted -->
+                        <h5 class="card-title">Posted By: {{.Username}}</h5>
+                        <!-- Date post was made-->
+                        <p> Posted On: {{.DatePosted}}</p>
+                        <!-- Server side sends a bool if the user looking at the post owns the post -->
+                        <!-- IF they do it adds a delete button to that post -->
+                        {{if .DeleteButton}}
+                            <!--If delete button is hit, calls a javascript function, pass in object ID of the post that is being deleted -->
+                            <button type="button" class="btn btn-danger" onclick="deletePost(&quot;{{.ID}}&quot;)">DELETE POST</button>
+                        {{end}}
+                    </div>
+                </div>
+            </div>
+        {{end}}
+    </div>
+
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+

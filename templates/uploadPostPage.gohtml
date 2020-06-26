@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+
+    <!-- Custom CSS Sheet -->
+    <link rel="stylesheet" href="/styles/website.css">
+
+    <!-- Title of the web page -->
+    <title>PostEt</title>
+</head>
+
+<body class=" custBody">
+
+
+<!-- NAVBAR SECTION -->
+<nav id="mainNavbar" class="navbar navbar-expand-xl navbar-dark">
+    <!-- Icon and Name in top left corner -->
+    <a class="navbar-brand" href="/"><i class="fas fa-portrait"></i> PostEt</a>
+    <!-- Navbar collapses into a button with 3 lines at a certain screen size-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar Links on Left Side of Page -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <!-- Link for top posts / index page-->
+                <a class="nav-link" href="/">Top Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Link to go to find posts page -->
+                <a class="nav-link" href="/findPosts">Find Posts <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+
+        <!-- Navbar Links on Right Side of Page -->
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item">
+                <!-- Link for your posts page -->
+                <a class="nav-link" href="/yourPosts">Your Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Link for your liked posts page -->
+                <a class="nav-link" href="/likedPosts">Liked Posts <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <!-- Link to upload a post page -->
+                <a class="nav-link" href="/uploadPostPage">Upload A Post <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <!-- Icon for a user with username of user next to it-->
+                <a class="nav-link" href="#"><i class="far fa-user"></i> {{.UsernamePass}}</a>
+            </li>
+            <li class="nav-item">
+                <!-- Link for logout -->
+                <a class="nav-link" href="/logout">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<!-- Container for heading text and form -->
+<div class="container-fluid">
+    <!-- Row to center data in middle of screen -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-6 text-center">
+            <!-- Upload a Post Banner  -->
+            <!-- Has custom CSS to change text size on media size -->
+            <h3 id="uploadPostText">Upload A Post</h3>
+        </div>
+    </div>
+
+    <!--This is for if an error occurs -->
+    <!-- If one occurs a string is passed into this template and this prints out the error -->
+    {{.ErrorMsgPass}}
+
+    <!-- Input for for Image And Caption -->
+    <!-- Separate Row from text -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <form action="/submitUploadPost" method="POST" enctype="multipart/form-data">
+                <!-- Form Section for Image -->
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Image</label>
+                    <!-- When sent to server variable name is imageToServer-->
+                    <input type="file" class="form-control-file" name="imageToServer" id="exampleFormControlFile1" accept="image/*">
+                </div>
+                <!-- Form Section for Caption -->
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Caption</label>
+                    <!-- When sent to server variable name is captionToServer-->
+                    <textarea class="form-control" name="captionToServer" id="exampleFormControlTextarea1" rows="5" maxlength="300"></textarea>
+                </div>
+                <!-- Form Section for Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+

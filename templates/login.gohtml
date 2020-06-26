@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+          crossorigin="anonymous">
+
+    <!-- Custom CSS Sheet -->
+    <link rel="stylesheet" href="/styles/website.css">
+
+    <!-- Title of the web page -->
+    <title>PostEt</title>
+</head>
+
+<body class=" custBody">
+
+
+<!-- NAVBAR SECTION -->
+<!-- Navbar collapses on anything less than lg screen size-->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark">
+    <!-- Icon and Name in top left corner -->
+    <a class="navbar-brand" href="/"><i class="fas fa-portrait"></i> PostEt</a>
+    <!-- Navar collapses into a button with 3 lines at a certain screen size-->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar Links on Left Side of Page -->
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <!-- Link for top posts / index page-->
+                <a class="nav-link" href="/">Top Posts <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+
+        <!-- Navbar Links on Right Side of Page -->
+        <ul class="navbar-nav navbar-right">
+            <li class="nav-item active">
+                <!-- Link to go to login page -->
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <!-- Link to go to signup page -->
+                <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<!-- Container for heading text and form -->
+<div class="container-fluid">
+    <!-- Row to center data in middle of screen -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-6 text-center">
+            <!-- User Login Banner  -->
+            <!-- Has custom CSS to change text size on media size -->
+            <h1 id="loginPageUser">User Login</h1>
+        </div>
+    </div>
+
+    <!--This is for if an error occurs -->
+    <!-- If one occurs a string is passed into this template and this prints out the error -->
+    {{.}}
+
+
+    <!-- Input for for Username And Password -->
+    <!-- Seperate Row from text -->
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <form action="/loginPost" method="POST">
+                <!-- Form Section for Username -->
+                <div class="form-group">
+                    <label for="usernameSubmit" class="text-uppercase navColor">Username</label>
+                    <!-- When sent to server variable name is usernameToServer-->
+                    <input type="text" name="usernameToServer" class="form-control" id="usernameSubmit" aria-describedby="emailHelp" placeholder="Enter Username">
+                </div>
+                <!-- Form Section for password -->
+                <div class="form-group">
+                    <label for="passwordSubmit" class="text-uppercase navColor">Password</label>
+                    <!-- When sent to server variable name is passwordToServer-->
+                    <input type="password" name="passwordToServer" class="form-control" id="passwordSubmit" placeholder="Password">
+                </div>
+                <!-- Form Section for Submit Button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+
+
