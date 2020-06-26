@@ -19,6 +19,9 @@ Another Note: This program will only run on Mac and Linux Debian OS. This is bec
 
 ## Code Structure of this Repository <a name="CodeStructure"></a>
 
+### PageImages
+Directory contaians files of what different web pages and behaviors on the website look like. These photos are displayed in the templates directory README.
+
 ### config
 Directory has files for web server configuration.
 - HTML Template Setup
