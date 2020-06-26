@@ -47,7 +47,7 @@ The styles directory has a custom CSS file.
 This template is executed when a user is searching for posts from another user.
 
 Find Post Page Before Searching a Username:  
-(https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/FindPostPagePreSearch.PNG)
+!(https://github.com/nicholaswhite752/SocialMediaWebsite/blob/master/PageImages/FindPostPagePreSearch.PNG)
 
 Image of searched page
 
